@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import stocksInfo from "../stocks.json"; // Assumes stocksInfo is an array of objects with { name, code, gdp }
-import { StreamContext } from "./ToogleStreaming";
+import countriesGDP from "../countries_gdp.json";
+import { StreamContext } from "./StreamingTask";
 import Chart from "react-apexcharts";
 
 // Function to shuffle an array randomly
@@ -67,17 +67,17 @@ const ChartData = () => {
     if (streamValue) {
       // Shuffle data every second when streaming is enabled
       const interval = setInterval(() => {
-        setShuffledData(shuffleArray([...stocksInfo]));
+        setShuffledData(shuffleArray([...countriesGDP]));
       }, 1000);
 
       // Initial shuffle
-      setShuffledData(shuffleArray([...stocksInfo]));
+      setShuffledData(shuffleArray([...countriesGDP]));
 
       // Cleanup interval on unmount or when streamValue changes
       return () => clearInterval(interval);
     } else {
       // Set data once when streaming is disabled
-      setShuffledData(shuffleArray([...stocksInfo]));
+      setShuffledData(shuffleArray([...countriesGDP]));
     }
   }, [streamValue]);
 

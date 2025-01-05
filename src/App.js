@@ -1,11 +1,11 @@
 import "./App.css";
-import ToogleStreaming from "./components/ToogleStreaming";
+import StreamingTask from "./components/StreamingTask";
 
 function App() {
   return (
     <>
       <div className=" mt-[100px]">
-        <ToogleStreaming />
+        <StreamingTask />
       </div>
     </>
   );
